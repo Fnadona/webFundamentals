@@ -1,4 +1,7 @@
-import java.sql.*;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Connection;
+import java.sql.ResultSet;
 
 public class TestaListagem {
     public static void main(String[] args) throws SQLException {
@@ -6,8 +9,8 @@ public class TestaListagem {
         ConnectionFactory connectionFactory = new ConnectionFactory();
         Connection connection = connectionFactory.recuperarConexao();
 
-        Statement stm = connection.createStatement();
-        stm.execute("SELECT ID, NOME, DESCRICAO FROM produto");
+        PreparedStatement stm = connection.prepareStatement("SELECT ID, NOME, DESCRICAO FROM produto");
+        stm.execute();
 
         ResultSet rst = stm.getResultSet();
 
@@ -24,6 +27,7 @@ public class TestaListagem {
 
         System.out.println("\nFechando conexão");
 
+        stm.close();
         connection.close();
     }
 }
