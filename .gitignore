@@ -2,6 +2,7 @@ apache-tomcat-9.0.55
 Produção
 Auxiliares
 loja
+loja-virtual-view-repository
 /gerenciador/target
 /gerenciador/.idea
 /gerenciador/gerenciador.iml
